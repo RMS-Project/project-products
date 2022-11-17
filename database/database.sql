@@ -17,7 +17,7 @@ CREATE TABLE `PRODUCTS_DATABASE`.`manufacturer` (
 ## DROP TABLE PRODUCTS_DATABASE.category;
 CREATE TABLE `PRODUCTS_DATABASE`.`category` (
   `id` INT NOT NULL AUTO_INCREMENT,
-  `name` VARCHAR(45) NOT NULL,
+  `name` VARCHAR(50) NOT NULL,
   `createdAt`DATE NOT NULL,
   `updatedAt` DATE NOT NULL,
   PRIMARY KEY (`id`)
@@ -46,4 +46,14 @@ CREATE TABLE `PRODUCTS_DATABASE`.`product_category` (
   FOREIGN KEY (category_id) REFERENCES category(id)
 );
 
+INSERT INTO `PRODUCTS_DATABASE`.`category` (`name`, `createdAt`, `updatedAt`) VALUES ('Biscoitos', '2022-11-14', '2022-11-14');
+INSERT INTO `PRODUCTS_DATABASE`.`manufacturer` (`name`, `createdAt`, `updatedAt`) VALUES ('Nabisco', '2022-11-14', '2022-11-14');
+## INSERT INTO `PRODUCTS_DATABASE`.`product_category` (`product_id`, `category_id`, `createdAt`, `updatedAt`) VALUES (1, 1, '2022-11-14', '2022-11-14');
+
 select * from PRODUCTS_DATABASE.product;
+
+select * from PRODUCTS_DATABASE.category;
+
+select * from PRODUCTS_DATABASE.manufacturer;
+
+

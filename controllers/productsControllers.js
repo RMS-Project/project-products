@@ -1,8 +1,8 @@
-import { Products, Manufacturer, Category } from "../models/index.js";
+import { Category, Manufacturer, Product } from "../models/index.js";
 
 const product = {
   list: async (request, response) => {
-    const productsList = await User.findAll({
+    const productsList = await Product.findAll({
       include: Category
     });
 
@@ -10,11 +10,7 @@ const product = {
   },
 
   read: async (request, response) => {
-    const user = await getUser({ id: request.params.id }, [
-      "id",
-      "name",
-      "email",
-    ]);
+    const user = await getUser({ id: request.params.id }, );
 
     return response.status(200).json(user);
   },
@@ -22,11 +18,13 @@ const product = {
   create: async (request, response) => {
     const { name, price, quantify, manufacturer_id, category_id } = request.body;
 
-    const newProduct = await Products.create({
+    console.log(request.body)
+
+    const newProduct = await Product.create({
       name,
       price,
       quantify,
-      manufacturer_id
+      manufacturer_id,
     });
 
     const category = await Category.findByPk(category_id);
@@ -75,4 +73,4 @@ const product = {
   }
 };
 
-export default user;
+export default product;

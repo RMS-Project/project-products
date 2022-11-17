@@ -4,7 +4,7 @@ import Express from "express";
 import routes from "./routes.js";
 
 // Conexão com o banco de dados utilizando Sequelize
-//import db from "./database/index.js";
+import db from "./database/index.js";
 
 // Instancia o Express.
 const app = Express();
@@ -23,4 +23,4 @@ app.listen(port, () => {
 });
 
 // Executando a conexão com o banco de dados.
-//db.hasConnection();
+db.hasConnection();
