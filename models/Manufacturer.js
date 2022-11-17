@@ -28,4 +28,4 @@ const Manufacturer = db.define(
   }
 );
 
-export default Manufacturer;
+export { Manufacturer };

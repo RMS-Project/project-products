@@ -28,4 +28,4 @@ const Category = db.define(
   }
 );
 
-export default Category;
+export { Category };

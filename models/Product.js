@@ -3,7 +3,7 @@
 import { DataTypes } from "sequelize";
 
 import db from "../database/index.js";
-import Manufacturer from "./Manufacturer.js";
+import { Manufacturer } from "./index.js";
 
 // Cria um objeto com padrão pascal-case que contém a primeira letra em maiúsculo.
 const Product = db.define(
@@ -45,4 +45,4 @@ const Product = db.define(
   }
 );
 
-export default Product;
+export { Product };

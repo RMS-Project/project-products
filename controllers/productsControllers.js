@@ -20,7 +20,7 @@ const product = {
 
     console.log(request.body)
 
-    const newProduct = await Product.create({
+    const { newProduct } = await Product.create({
       name,
       price,
       quantify,
@@ -44,7 +44,7 @@ const product = {
     const productUpdate = await Products.update({
       name,
       price,
-      quantify
+      quantify,
     }, 
     {
       where: {

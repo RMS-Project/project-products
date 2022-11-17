@@ -1,7 +1,7 @@
 import { DataTypes } from "sequelize";
 
-import Product from "./Product.js";
-import Category from "./Category.js";
+import { Product } from "./index.js";
+import { Category } from "./index.js";
 
 import db from "../database/index.js";
 
@@ -37,4 +37,4 @@ const CategoryProduct = db.define(
   }
 );
 
-export default CategoryProduct;
+export { CategoryProduct };
