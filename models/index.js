@@ -1,21 +1,21 @@
 // Arquivo que junta todos os arquivos de configuração do model.
 // Nele é criado o relacionamento entre a s tabelas.
 
-import { Manufacturer } from "./Manufacturer.js";
-import { Product } from "./Product.js";
-import { Category } from "./Category.js";
-import { CategoryProduct } from "./CategoryProduct.js";
+import CategoryProduct from "./CategoryProduct.js";
+import Category from "./Category.js";
+import Manufacturer from "./Manufacturer.js";
+import Product from "./Product.js";
 
 // Relacionamento 1 para N.
 
 // Produtos pertencem a um fabricante.
 Product.belongsTo(Manufacturer, {
-  foreignKey: "manufacturer.id",
+  foreignKey: "id",
 });
 
 // Um fabricante possui muitos produtos.
 Manufacturer.hasMany(Product, {
-  foreignKey: "product.id",
+  foreignKey: "manufacturer_id",
 });
 
 // Relacionamento 1 para 1.

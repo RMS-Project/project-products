@@ -28,7 +28,7 @@ CREATE TABLE `PRODUCTS_DATABASE`.`product` (
   `id` INT NOT NULL AUTO_INCREMENT,
   `name` VARCHAR(50) NOT NULL,
   `price` float NOT NULL,
-  `quantity` INT NOT NULL,
+  `quantify` INT NOT NULL,
   `manufacturer_id` INT NOT NULL,
   `createdAt`DATE NOT NULL,
   `updatedAt` DATE NOT NULL,
@@ -55,5 +55,3 @@ select * from PRODUCTS_DATABASE.product;
 select * from PRODUCTS_DATABASE.category;
 
 select * from PRODUCTS_DATABASE.manufacturer;
-
-

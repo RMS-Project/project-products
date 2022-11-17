@@ -3,7 +3,7 @@
 import { DataTypes } from "sequelize";
 
 import db from "../database/index.js";
-import { Manufacturer } from "./index.js";
+import Manufacturer from "./Manufacturer.js";
 
 // Cria um objeto com padrão pascal-case que contém a primeira letra em maiúsculo.
 const Product = db.define(
@@ -21,21 +21,21 @@ const Product = db.define(
     price: {
       type: DataTypes.FLOAT,
     },
-    quantity: {
+    quantify: {
       type: DataTypes.INTEGER,
     },
     // Foreign Key que faz referência ao fabricante.
-    manufacturer: {
+    manufacturer_id: {
       type: DataTypes.INTEGER,
       references: {
         model: Manufacturer,
         key: "id",
       },
     },
-    createAt: {
+    createdAt: {
       type: DataTypes.DATE,
     },
-    updateAt: {
+    updatedAt: {
       type: DataTypes.DATE,
     },
   },
@@ -45,4 +45,4 @@ const Product = db.define(
   }
 );
 
-export { Product };
+export default Product;

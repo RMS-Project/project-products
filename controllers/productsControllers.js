@@ -3,14 +3,23 @@ import { Category, Manufacturer, Product } from "../models/index.js";
 const product = {
   list: async (request, response) => {
     const productsList = await Product.findAll({
-      include: Category
+      include: Category,
+      attributes: ['name', 'price', 'quantify', 'manufacturer_id']
     });
 
     return response.status(200).json(productsList);
   },
 
   read: async (request, response) => {
-    const user = await getUser({ id: request.params.id }, );
+    const { id } = request.params
+
+    // 400 - Bad request.
+    if (!id) return request.status(400).json("Id não enviado")
+
+    const user = await Product.findOne({
+      id: id,
+      attributes: ['name', 'price', 'quantify', 'manufacturer_id']
+    });
 
     return response.status(200).json(user);
   },
@@ -18,9 +27,7 @@ const product = {
   create: async (request, response) => {
     const { name, price, quantify, manufacturer_id, category_id } = request.body;
 
-    console.log(request.body)
-
-    const { newProduct } = await Product.create({
+    const newProduct = await Product.create({
       name,
       price,
       quantify,
@@ -29,6 +36,7 @@ const product = {
 
     const category = await Category.findByPk(category_id);
 
+    // Special methods
     await newProduct.setCategory(category);
 
     request.status(201).json(newProduct);
@@ -41,7 +49,7 @@ const product = {
     // 400 - Bad request.
     if (!id) return request.status(400).json("Id não enviado")
     
-    const productUpdate = await Products.update({
+    const productUpdate = await Product.update({
       name,
       price,
       quantify,

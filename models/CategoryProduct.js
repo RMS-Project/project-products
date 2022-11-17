@@ -1,7 +1,7 @@
 import { DataTypes } from "sequelize";
 
-import { Product } from "./index.js";
-import { Category } from "./index.js";
+import Product from "./Product.js";
+import Category from "./Category.js";
 
 import db from "../database/index.js";
 
@@ -24,10 +24,10 @@ const CategoryProduct = db.define(
         key: "id",
       },
     },
-    createAt: {
+    createdAt: {
       type: DataTypes.DATE,
     },
-    updateAt: {
+    updatedAt: {
       type: DataTypes.DATE,
     },
   },
@@ -37,4 +37,4 @@ const CategoryProduct = db.define(
   }
 );
 
-export { CategoryProduct };
+export default CategoryProduct;

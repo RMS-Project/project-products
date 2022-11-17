@@ -15,10 +15,10 @@ const Category = db.define(
     name: {
       type: DataTypes.STRING,
     },
-    createAt: {
+    createdAt: {
       type: DataTypes.DATE,
     },
-    updateAt: {
+    updatedAt: {
       type: DataTypes.DATE,
     },
   },
@@ -28,4 +28,4 @@ const Category = db.define(
   }
 );
 
-export { Category };
+export default Category;

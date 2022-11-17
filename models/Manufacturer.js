@@ -15,10 +15,10 @@ const Manufacturer = db.define(
     name: {
       type: DataTypes.STRING,
     },
-    createAt: {
+    createdAt: {
       type: DataTypes.DATE,
     },
-    updateAt: {
+    updatedAt: {
       type: DataTypes.DATE,
     },
   },
@@ -28,4 +28,4 @@ const Manufacturer = db.define(
   }
 );
 
-export { Manufacturer };
+export default Manufacturer;
