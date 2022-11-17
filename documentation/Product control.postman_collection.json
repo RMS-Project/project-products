@@ -90,7 +90,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n    \"newName\": \"RodrigoMS\",\n    \"newEmail\": \"rms@localhost.com\",\n    \"newPassword\": \"123456789\",\n    \"newPasswordConfirm\": \"123456789\",\n    \"currentName\": \"Rodrigo\",\n    \"currentEmail\": \"rms@localhost.com\",\n    \"currentPassword\": \"123456789\"\n}",
+					"raw": "{\n    \"name\": \"Bolacha de Baunilha\",\n    \"price\": \"2.50\",\n    \"quantify\": \"100\",\n    \"manufacturer_id\": \"1\",\n    \"category_id\": \"1\"\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -98,14 +98,21 @@
 					}
 				},
 				"url": {
-					"raw": "http://localhost:3000/user",
+					"raw": "http://localhost:3000/user/:id",
 					"protocol": "http",
 					"host": [
 						"localhost"
 					],
 					"port": "3000",
 					"path": [
-						"user"
+						"user",
+						":id"
+					],
+					"variable": [
+						{
+							"key": "id",
+							"value": "1"
+						}
 					]
 				}
 			},

@@ -18,6 +18,7 @@ const product = {
 
     const user = await Product.findOne({
       id: id,
+      include: Category,
       attributes: ['name', 'price', 'quantify', 'manufacturer_id']
     });
 
@@ -37,13 +38,13 @@ const product = {
     const category = await Category.findByPk(category_id);
 
     // Special methods
-    await newProduct.setCategory(category);
+    await newProduct.setCategories(category);
 
-    request.status(201).json(newProduct);
+    return response.status(201).json(newProduct);
   },
 
   update: async (request, response) => {
-    const { id } = req.params;
+    const { id } = request.params;
     const { name, price, quantify } = request.body;
 
     // 400 - Bad request.
@@ -60,24 +61,27 @@ const product = {
       }
     })
 
-    response.status(200).json("Produto Atualizado")
+    return response.status(200).json("Produto Atualizado")
   },
 
   delete: async (request, response) => {
-    try {
+    //try {
       const { id } = request.params;
 
-      await Products.destroy({
+      // 400 - Bad request.
+      if (!id) return request.status(400).json("Id não enviado")
+
+      await Product.destroy({
         where: {
           id,
         }
       });
   
-      request.status(204);
+      return request.status(204);
     
-    } catch(error) {
+    /*} catch(error) {
       return response.status(500).json("Ocorreu algum problema")
-    }
+    }*/
   }
 };
 

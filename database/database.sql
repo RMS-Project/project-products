@@ -48,6 +48,8 @@ CREATE TABLE `PRODUCTS_DATABASE`.`product_category` (
 
 INSERT INTO `PRODUCTS_DATABASE`.`category` (`name`, `createdAt`, `updatedAt`) VALUES ('Biscoitos', '2022-11-14', '2022-11-14');
 INSERT INTO `PRODUCTS_DATABASE`.`manufacturer` (`name`, `createdAt`, `updatedAt`) VALUES ('Nabisco', '2022-11-14', '2022-11-14');
+
+INSERT INTO `PRODUCTS_DATABASE`.`product_category` (`product_id`, `category_id`, `createdAt`, `updatedAt`) VALUES (1, 1, '2022-11-17', '2022-11-17');
 ## INSERT INTO `PRODUCTS_DATABASE`.`product_category` (`product_id`, `category_id`, `createdAt`, `updatedAt`) VALUES (1, 1, '2022-11-14', '2022-11-14');
 
 select * from PRODUCTS_DATABASE.product;
@@ -55,3 +57,7 @@ select * from PRODUCTS_DATABASE.product;
 select * from PRODUCTS_DATABASE.category;
 
 select * from PRODUCTS_DATABASE.manufacturer;
+
+select * from PRODUCTS_DATABASE.product_category;
+
+DELETE FROM `product` WHERE `id` = '1';
